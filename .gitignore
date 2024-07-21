@@ -4,3 +4,4 @@ terraformCode/terraform.tfstate
 terraformCode/terraform.tfstate.backup
 terraformCode/.terraform/providers/registry.terraform.io/hashicorp/aws/5.59.0/windows_amd64/LICENSE.txt
 terraformCode/.terraform/providers/registry.terraform.io/hashicorp/aws/5.59.0/windows_amd64/terraform-provider-aws_v5.59.0_x5.exe
+terraformCodeFile
