@@ -27,3 +27,7 @@ terraform console
 /*  
 Above code uses file function to read the user policy json file(user-policy.json) from the path where file is saved
 */
+
+/*  
+Terraform does not support user defined functions. You can use only inbuilt functions
+*/
