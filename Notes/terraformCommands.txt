@@ -17,3 +17,4 @@ terraform show file_name.plan
 terraform show -json file_name.plan
 terraform show -json file_name.plan | jq
 terraform apply "file_name.plan"
+terraform output output_block_name
