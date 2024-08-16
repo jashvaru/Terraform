@@ -11,3 +11,9 @@ terraform fmt
 terraform validate
 terraform apply -replace="resource.resource_name"
 terraform graph
+terraform graph | dot -Tpng >graph.png
+terraform plan -out file_name.plan
+terraform show file_name.plan
+terraform show -json file_name.plan
+terraform show -json file_name.plan | jq
+terraform apply "file_name.plan"
