@@ -1,0 +1,13 @@
+terraform init
+terraform plan
+terraform apply
+terraform destroy
+terraform refresh
+terraform init -upgrade
+terraform apply -auto-approve
+terraform destroy -auto-approve
+terraform console
+terraform fmt
+terraform validate
+terraform apply -replace="resource.resource_name"
+terraform graph
