@@ -7,7 +7,7 @@ resource "aws_instance" "myec2" {
   }
 
   lifecycle {
-    ignore_changes = [tags]
+    ignore_changes = [tags] #ignore_changes = all, ignore_changes = [tags, instance_type]
   }
 }
 
