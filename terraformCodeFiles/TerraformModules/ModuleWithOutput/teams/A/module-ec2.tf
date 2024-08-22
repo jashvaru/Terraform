@@ -15,5 +15,5 @@ resource "aws_eip" "elasticip" {
 
 /*  
 here I am creating a resource of aws_eip and attaching it to the ec2 instance created using the module
-To refer the output value of the module we need to use module.resource_name.output_name
+To refer the output value of the module we need to use module.module_name.output_name
 */
