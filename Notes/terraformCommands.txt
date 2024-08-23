@@ -20,3 +20,8 @@ terraform show -json file_name.plan | jq
 terraform apply "file_name.plan"
 terraform output output_block_name
 terraform plan -target=resource_name
+terraform workspace show
+terraform workspace new
+terraform workspace list
+terraform workspace select
+terraform workspace delete
