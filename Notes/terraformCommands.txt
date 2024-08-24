@@ -25,3 +25,5 @@ terraform workspace new
 terraform workspace list
 terraform workspace select
 terraform workspace delete
+terraform init -migrate-state
+terraform init -reconfigure
