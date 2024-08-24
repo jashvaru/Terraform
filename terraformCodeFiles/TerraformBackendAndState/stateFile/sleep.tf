@@ -42,3 +42,13 @@ CMD 2
 │ again. For most commands, you can disable locking with the "-lock=false"
 │ flag, but this is not recommended.
 */
+
+/*  
+How does terraform know who have locked the state file
+So when a file state is locked the information is stored in the  .terraform.tfstate.lock.info file
+{"ID":"4161f33c-0197-7667-4571-55cbdddf7dd6","Operation":"OperationTypeApply","Info":"","Who":"DESKTOP-E4LQP9O\\Jash Varu@DESKTOP-E4LQP9O","Version":"1.9.2","Created":"2024-08-24T12:15:40.701781Z","Path":"terraform.tfstate"}
+*/
+
+/*  
+We can also do force unlocking using command
+*/
