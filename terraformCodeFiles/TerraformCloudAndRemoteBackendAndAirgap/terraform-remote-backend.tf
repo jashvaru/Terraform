@@ -1,0 +1,3 @@
+/*  
+It strores terraform state and may be used to run operations in terraform cloud
+*/
