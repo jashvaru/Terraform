@@ -1,27 +1,11 @@
-terraform {
-  required_providers {
-    aws = {
-      source = "hashicorp/aws"
-
-    }
-  }
-}
-
-provider "aws" {
-  region = "ap-south-1"
-}
-
-resource "aws_eip" "example" {
-  domain = "vpc"
-}
-
-resource "aws_security_group" "security_group_payment_app" {
+resource "aws_security_group" "payment_app" {
   name        = "payment_app"
   description = "Application Security Group"
   depends_on  = [aws_eip.example]
 
   # Below ingress allows HTTPS  from DEV VPC
   ingress {
+    description = "Allow HTTPS from DEV"
     from_port   = var.httpsPort
     to_port     = var.httpsPort
     protocol    = "tcp"
@@ -31,6 +15,7 @@ resource "aws_security_group" "security_group_payment_app" {
   # Below ingress allows APIs access from DEV VPC
 
   ingress {
+    description = "Allow API's access from DEV"
     from_port   = var.apiDevPort
     to_port     = var.apiDevPort
     protocol    = "tcp"
@@ -40,6 +25,7 @@ resource "aws_security_group" "security_group_payment_app" {
   # Below ingress allows APIs access from Prod App Public IP.
 
   ingress {
+    description = "Allow API's access from PROD"
     from_port   = var.apiProdPort
     to_port     = var.apiProdPort
     protocol    = "tcp"
@@ -47,10 +33,17 @@ resource "aws_security_group" "security_group_payment_app" {
   }
 
   egress {
+    description = "Splunk"
     from_port   = var.splunk
     to_port     = var.splunk
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "Payment App"
+    Team = "Payments"
+    Env  = "Production"
   }
 }
 
@@ -72,6 +65,15 @@ resource "aws_eip" "example" {
 /*  
 create sg-var.tf to declare all the variables and terraform.tfvars to define all the variables
 
+*/
+
+/*  
+added tag to security group
+And added description to each inbound and outbound rule
+*/
+
+/*  
+Divide the code into diff files for better understanding and code structure
 */
 
 /*  
