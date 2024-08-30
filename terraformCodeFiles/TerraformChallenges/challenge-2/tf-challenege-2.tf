@@ -11,12 +11,8 @@ provider "aws" {
   region = "ap-south-1"
 }
 
-variable "splunk" {
-  default = "8088"
-}
-
 resource "aws_eip" "example" {
-  vpc = true
+  domain = "vpc"
 }
 
 resource "aws_security_group" "security_group_payment_app" {
@@ -26,26 +22,26 @@ resource "aws_security_group" "security_group_payment_app" {
 
   # Below ingress allows HTTPS  from DEV VPC
   ingress {
-    from_port   = 443
-    to_port     = 443
+    from_port   = var.httpsPort
+    to_port     = var.httpsPort
     protocol    = "tcp"
-    cidr_blocks = ["172.31.0.0/16"]
+    cidr_blocks = var.cidrIp
   }
 
   # Below ingress allows APIs access from DEV VPC
 
   ingress {
-    from_port   = 8080
-    to_port     = 8080
+    from_port   = var.apiDevPort
+    to_port     = var.apiDevPort
     protocol    = "tcp"
-    cidr_blocks = ["172.31.0.0/16"]
+    cidr_blocks = var.cidrIp
   }
 
   # Below ingress allows APIs access from Prod App Public IP.
 
   ingress {
-    from_port   = 8443
-    to_port     = 8443
+    from_port   = var.apiProdPort
+    to_port     = var.apiProdPort
     protocol    = "tcp"
     cidr_blocks = ["${aws_eip.example.public_ip}/32"]
   }
@@ -61,6 +57,21 @@ resource "aws_security_group" "security_group_payment_app" {
 
 /*  
 moved egress block into proper aws_security_group brackets
+*/
+
+/*  
+since terraform.lock.hcl file had older version of terraform we need to run below command to update the version
+terraform init -upgrade
+
+this will resolve our problem with
+resource "aws_eip" "example" {
+  domain = "vpc"
+}
+*/
+
+/*  
+create sg-var.tf to declare all the variables and terraform.tfvars to define all the variables
+
 */
 
 /*  
