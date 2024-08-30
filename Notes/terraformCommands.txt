@@ -9,6 +9,8 @@ terraform apply -auto-approve
 terraform destroy -auto-approve
 terraform console
 terraform fmt
+terraform fmt -check
+terraform fmt -recursive
 terraform validate
 terraform apply -replace="resource.resource_name"
 terraform graph
