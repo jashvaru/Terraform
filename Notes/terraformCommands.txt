@@ -4,6 +4,7 @@ terraform plan
 terraform apply
 terraform destroy
 terraform refresh
+terraform plan -refresh=false
 terraform init -upgrade
 terraform apply -auto-approve
 terraform destroy -auto-approve
