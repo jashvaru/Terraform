@@ -29,3 +29,6 @@ terraform workspace select
 terraform workspace delete
 terraform init -migrate-state
 terraform init -reconfigure
+terraform plan -target="resource_type.resource_name"
+terraform apply -target="resource_type.resource_name"
+terraform destroy -target="resource_type.resource_name"
