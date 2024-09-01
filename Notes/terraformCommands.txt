@@ -26,13 +26,13 @@ terraform destroy -target="resource_type.resource_name" ................With tar
 terraform destroy -target="resource_type.resource_name" -auto-approve   ................With target flag it allow us to destroy specific resource and auto approves it
 
 terraform refresh   .................It will check the latest state of infra and update the terraform.tfstate file accordingly
-terraform console
+terraform console   .................It provides an interactive environment to run terraform code in CLI
 
-terraform fmt
-terraform fmt -check
-terraform fmt -recursive
+terraform fmt   ..................It rewrite the terraform config file to take care of the overall formatting
+terraform fmt -check    ..........It will just check if file is formatted it will not modify the file
+terraform fmt -recursive    ......It will format terraform files that are present within the directory and also child directories
 
-terraform validate
+terraform validate  .............It check whether terraform file is syntatically valid. It can check unsupported args, undeclared varibles and more
 
 terraform graph
 terraform graph | dot -Tpng >graph.png
