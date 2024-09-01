@@ -1,25 +1,25 @@
-terraform init
+terraform init  .................Initializes terraform for the providers you mentioned in the .tf file
 terraform init -upgrade
 terraform init -migrate-state
 terraform init -reconfigure
 
 terraform version
 
-terraform plan
+terraform plan  .................Shows a description of the config you are trying to create
 terraform plan -refresh=false
-terraform plan -out file_name.plan
-terraform plan -target="resource_type.resource_name"
+terraform plan -out file_name.plan  ..............It stores the plan into the file in binary format, which can be use to perform terraform
+terraform plan -target="resource_type.resource_name"    ................With target flag it allow us to plan specific resource
 
-terraform apply
-terraform apply -auto-approve
-terraform apply -target="resource_type.resource_name"
+terraform apply .................It will create all the new resources mentioned in the .tf file
+terraform apply -auto-approve   ..............No need to confirm again by typing yes, it will create all the resources
+terraform apply -target="resource_type.resource_name"   ................With target flag it allow us to create specific resource
 terraform apply -target="resource_type.resource_name" -auto-approve
 terraform apply -replace="resource.resource_name"
 terraform apply "file_name.plan"
 
-terraform destroy
-terraform destroy -auto-approve
-terraform destroy -target="resource_type.resource_name"
+terraform destroy   .................It will destroy all the resources mentioned in the .tf file
+terraform destroy -auto-approve ..............No need to confirm again by typing yes, it will destroy all the resources
+terraform destroy -target="resource_type.resource_name" ................With target flag it allow us to destroy specific resource
 terraform destroy -target="resource_type.resource_name" -auto-approve
 
 terraform refresh
