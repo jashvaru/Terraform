@@ -58,3 +58,13 @@ terraform workspace new workspace_name  .....It will create a new workspace and 
 terraform workspace list    .................It will list all the workspace available
 terraform workspace select workspace_name  ..To switch between workspace use this command
 terraform workspace delete  workspace_name ..It will delete the workspace
+terraform.workspace .........................To reference current workspace in the terraform code
+
+
+Types of file in terraform
+.terraform directory .........It will save provider details and workspace environment information
+terraform.tfstate   ..........It will store information about the resource created through terraform
+terraform.tfstate.backup .....It is a backup of the .tfstate file, even after terraform destroy info will be available in this file
+.terraform.lock.hcl ..........It will lock terraform version and provider version
+.terraform.tfstate.locl.info..It will hold information about the user/machine that is currently performing write operation in .tfstate file
+terraform.tfstate.d directory..It will hold sub directories with the workspace name and will hold .tfstate file information. This will get created only when we use workspace
