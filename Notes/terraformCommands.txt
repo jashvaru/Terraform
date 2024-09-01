@@ -1,35 +1,50 @@
 terraform init
-terraform version
-terraform plan
-terraform apply
-terraform destroy
-terraform refresh
-terraform plan -refresh=false
 terraform init -upgrade
+terraform init -migrate-state
+terraform init -reconfigure
+
+terraform version
+
+terraform plan
+terraform plan -refresh=false
+terraform plan -out file_name.plan
+terraform plan -target="resource_type.resource_name"
+
+terraform apply
 terraform apply -auto-approve
+terraform apply -target="resource_type.resource_name"
+terraform apply -target="resource_type.resource_name" -auto-approve
+terraform apply -replace="resource.resource_name"
+terraform apply "file_name.plan"
+
+terraform destroy
 terraform destroy -auto-approve
+terraform destroy -target="resource_type.resource_name"
+terraform destroy -target="resource_type.resource_name" -auto-approve
+
+terraform refresh
 terraform console
+
 terraform fmt
 terraform fmt -check
 terraform fmt -recursive
+
 terraform validate
-terraform apply -replace="resource.resource_name"
+
 terraform graph
 terraform graph | dot -Tpng >graph.png
-terraform plan -out file_name.plan
+
 terraform show file_name.plan
 terraform show -json file_name.plan
 terraform show -json file_name.plan | jq
-terraform apply "file_name.plan"
+
 terraform output output_block_name
-terraform plan -target=resource_name
+
 terraform workspace show
 terraform workspace new
 terraform workspace list
 terraform workspace select
 terraform workspace delete
-terraform init -migrate-state
-terraform init -reconfigure
+
 terraform plan -target="resource_type.resource_name"
 terraform apply -target="resource_type.resource_name"
-terraform destroy -target="resource_type.resource_name"
