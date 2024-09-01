@@ -1,5 +1,5 @@
 terraform init  .................Initializes terraform for the providers you mentioned in the .tf file
-terraform init -upgrade .........When we do terraform init it eill lock the provider version in terraform,lock.hcl file, if we want to update the version in lock file use this command
+terraform init -upgrade .........When we do terraform init it will lock the provider version in terraform.lock.hcl file, if we want to update the version in lock file use this command
 terraform init -migrate-state  ..It is use to migrate exsisting state from local backend to new remote backend. From one backend to another
 terraform init -reconfigure .....It is use when you need to update or reapply your backend settings without migrating state.
 
@@ -32,7 +32,7 @@ terraform console   .................It provides an interactive environment to r
 
 terraform fmt   ..................It rewrite the terraform config file to take care of the overall formatting
 terraform fmt -check    ..........It will just check if file is formatted it will not modify the file
-terraform fmt -recursive    ......It will format terraform files that are present within the directory and also child directories
+terraform fmt -recursive    ......It will format terraform files that are present within the directory and also child directories. By default it will only format files of current dir
 
 terraform validate  .............It check whether terraform file is syntatically valid. It can check unsupported args, undeclared varibles and more
 
