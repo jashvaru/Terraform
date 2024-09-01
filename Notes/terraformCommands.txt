@@ -53,8 +53,8 @@ terraform state show resource_type.resource_name   ...It shows attributes of a s
 terraform state replace-provider source_provider target_provider    ..................It is use to replace provider for the resource in a terraform state
 terraform state mv source_resource_type.resource_name target_resource_type.resource_name  ..................................It moves items with terraform state file
 
-terraform workspace show    ......
-terraform workspace new
-terraform workspace list
-terraform workspace select
-terraform workspace delete
+terraform workspace show    .................It will show the name of the current workspace
+terraform workspace new workspace_name  .....It will create a new workspace and switch to it
+terraform workspace list    .................It will list all the workspace available
+terraform workspace select workspace_name  ..To switch between workspace use this command
+terraform workspace delete  workspace_name ..It will delete the workspace
