@@ -1,7 +1,7 @@
 terraform init  .................Initializes terraform for the providers you mentioned in the .tf file
 terraform init -upgrade .........When we do terraform init it eill lock the provider version in terraform,lock.hcl file, if we want to update the version in lock file use this command
-terraform init -migrate-state
-terraform init -reconfigure
+terraform init -migrate-state  ..It is use to migrate exsisting state from local backend to new remote backend. From one backend to another
+terraform init -reconfigure .....It is use when you need to update or reapply your backend settings without migrating state.
 
 terraform version   .............Shows version of the terraform installed on your machine
 
@@ -12,6 +12,7 @@ terraform plan -target="resource_type.resource_name"    ...............With targ
 terraform plan -var-file="file_name.tfvars" ...........................It will create plan using values define for varibles in the *.tfvars file
 terraform plan -var="variable_name=value"   ...........................It will define the value of the variable declared in tf file from command line
 terraform plan -var="variable_name=value" -var="variable_name=value" ..For defining value for more than one variable from CLI
+terraform plan -generate-config-out=file_name.tf    ...................If we are using import block use this command to generate .tf file for the resource
 
 terraform apply .......................................................It will create all the new resources mentioned in the .tf file
 terraform apply -auto-approve   .......................................No need to confirm again by typing yes, it will create all the resources
@@ -61,10 +62,11 @@ terraform workspace delete  workspace_name ..It will delete the workspace
 terraform.workspace .........................To reference current workspace in the terraform code
 
 
+
 Types of file in terraform
 .terraform directory .........It will save provider details and workspace environment information
 terraform.tfstate   ..........It will store information about the resource created through terraform
 terraform.tfstate.backup .....It is a backup of the .tfstate file, even after terraform destroy info will be available in this file
-.terraform.lock.hcl ..........It will lock terraform version and provider version
+.terraform.lock.hcl ..........It will lock provider version (Latest terraform version is selected and does not remember version of modules)
 .terraform.tfstate.locl.info..It will hold information about the user/machine that is currently performing write operation in .tfstate file
 terraform.tfstate.d directory..It will hold sub directories with the workspace name and will hold .tfstate file information. This will get created only when we use workspace
