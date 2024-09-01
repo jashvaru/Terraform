@@ -45,13 +45,13 @@ terraform show -json file_name.plan | jq    ...It will print .plan file content 
 terraform output output_variable_name   .......It is used to extract value of output variable from the state file
 terraform force-unlock lock_id ................It is used to unlock the state file forcefully to allow write operations
 
-terraform state list    ..............It will list resources in the state file
-terraform state mv  ..................It moves items with terraform state file
-terraform state pull    ..............It will manually download and output resources of the remote state
-terraform state push    ..............It manually uploads a local state file to remote state
-terraform state rm  ..................It removes items from the terraform state file
-terraform state show    ..............It shows attributes of a single resource in the state
-terraform state replace-provider    ..It is use to replace provider for the resource in a terraform state
+terraform state list    ..............................It will list resources in the state file
+terraform state pull    ..............................It will manually download and output resources of the remote state
+terraform state push    ..............................It manually uploads a local state file to remote state
+terraform state rm resource_type.resource_name........It removes items from the terraform state file, it gets removes from terraform state management without destroying the resource
+terraform state show resource_type.resource_name   ...It shows attributes of a single resource in the state
+terraform state replace-provider source_provider target_provider    ..................It is use to replace provider for the resource in a terraform state
+terraform state mv source_resource_type.resource_name target_resource_type.resource_name  ..................................It moves items with terraform state file
 
 terraform workspace show    ......
 terraform workspace new
