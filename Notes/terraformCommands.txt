@@ -42,13 +42,11 @@ terraform show file_name.plan   ...............To see terraform .plan file use t
 terraform show -json file_name.plan ...........It will print .plan file content in json
 terraform show -json file_name.plan | jq    ...It will print .plan file content in json and will be formatted using jq application
 
-terraform output output_block_name
+terraform output output_variable_name   .......It is used to extract value of output variable from the state file
+terraform force-unlock lock_id ................It is used to unlock the state file forcefully to allow write operations
 
-terraform workspace show
+terraform workspace show    ......
 terraform workspace new
 terraform workspace list
 terraform workspace select
 terraform workspace delete
-
-terraform plan -target="resource_type.resource_name"
-terraform apply -target="resource_type.resource_name"
