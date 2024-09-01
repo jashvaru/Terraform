@@ -5,25 +5,26 @@ terraform init -reconfigure
 
 terraform version   .............Shows version of the terraform installed on your machine
 
-terraform plan  .................Shows a description of the config you are trying to create
-terraform plan -refresh=false   ......By default terraform refresh will happen with plan and apply command to avoid this you can set the -refresh flag as false while running plan and apply
-terraform plan -out file_name.plan  ..............It stores the plan into the file in binary format, which can be use to perform terraform
-terraform plan -target="resource_type.resource_name"    ................With target flag it allow us to plan specific resource
-terraform plan -var-file="file_name.tfvars" ............It will create plan using values define for varibles in the *.tfvars file
-terraform plan -var="variable_name=value"   ............It will define the value of the variable declared in tf file from command line
-terraform plan -var="variable_name=value" -var="variable_name=value"    .......for defining value for more than one variable from CLI
+terraform plan  .......................................................Shows a description of the config you are trying to create
+terraform plan -refresh=false   .......................................By default terraform refresh will happen with plan and apply command to avoid this you can set the -refresh flag as false while running plan and apply
+terraform plan -out file_name.plan  ...................................It stores the plan into the file in binary format, which can be use create resource using terraform apply
+terraform plan -target="resource_type.resource_name"    ...............With target flag it allow us to plan specific resource
+terraform plan -var-file="file_name.tfvars" ...........................It will create plan using values define for varibles in the *.tfvars file
+terraform plan -var="variable_name=value"   ...........................It will define the value of the variable declared in tf file from command line
+terraform plan -var="variable_name=value" -var="variable_name=value" ..For defining value for more than one variable from CLI
 
-terraform apply .................It will create all the new resources mentioned in the .tf file
-terraform apply -auto-approve   ..............No need to confirm again by typing yes, it will create all the resources
-terraform apply -target="resource_type.resource_name"   ................With target flag it allow us to create specific resource
-terraform apply -target="resource_type.resource_name" -auto-approve ................With target flag it allow us to create specific resource and auto approves it
-terraform apply -replace="resource.resource_name"
-terraform apply "file_name.plan"    ..........To create a resource with a .plan file use this command 
+terraform apply .......................................................It will create all the new resources mentioned in the .tf file
+terraform apply -auto-approve   .......................................No need to confirm again by typing yes, it will create all the resources
+terraform apply -target="resource_type.resource_name"   ...............With target flag it allow us to create specific resource
+terraform apply -target="resource_type.resource_name" -auto-approve ...With target flag it allow us to create specific resource and auto approves it
+terraform apply -replace="resource.resource_name"   ...................It will replace the resource object even though there is no changes. It will first destroy older EC2 and than create new EC2
+terraform taint .......................................................Older version of above command not to use as its deprecated
+terraform apply "file_name.plan"    ...................................To create a resource with a .plan file use this command 
 
-terraform destroy   .................It will destroy all the resources mentioned in the .tf file
-terraform destroy -auto-approve ..............No need to confirm again by typing yes, it will destroy all the resources
-terraform destroy -target="resource_type.resource_name" ................With target flag it allow us to destroy specific resource
-terraform destroy -target="resource_type.resource_name" -auto-approve   ................With target flag it allow us to destroy specific resource and auto approves it
+terraform destroy   ...................................................It will destroy all the resources mentioned in the .tf file
+terraform destroy -auto-approve .......................................No need to confirm again by typing yes, it will destroy all the resources
+terraform destroy -target="resource_type.resource_name" ...............With target flag it allow us to destroy specific resource
+terraform destroy -target="resource_type.resource_name" -auto-approve .With target flag it allow us to destroy specific resource and auto approves it
 
 terraform refresh   .................It will check the latest state of infra and update the terraform.tfstate file accordingly
 terraform console   .................It provides an interactive environment to run terraform code in CLI
@@ -34,12 +35,12 @@ terraform fmt -recursive    ......It will format terraform files that are presen
 
 terraform validate  .............It check whether terraform file is syntatically valid. It can check unsupported args, undeclared varibles and more
 
-terraform graph
-terraform graph | dot -Tpng >graph.png
+terraform graph ...............................It will generate output in graph language to convert this into image use online websites or download application
+terraform graph | dot -Tpng >graph.png  .......Download graph viz locally and run this command. It generates graph code and pass it to dot to generate png image
 
-terraform show file_name.plan
-terraform show -json file_name.plan
-terraform show -json file_name.plan | jq
+terraform show file_name.plan   ...............To see terraform .plan file use this command
+terraform show -json file_name.plan ...........It will print .plan file content in json
+terraform show -json file_name.plan | jq    ...It will print .plan file content in json and will be formatted using jq application
 
 terraform output output_block_name
 
