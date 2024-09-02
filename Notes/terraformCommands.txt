@@ -8,6 +8,7 @@ terraform version   .............Shows version of the terraform installed on you
 
 terraform plan  .......................................................Shows a description of the config you are trying to create
 terraform plan -refresh=false   .......................................By default terraform refresh will happen with plan and apply command to avoid this you can set the -refresh flag as false while running plan and apply
+terraform plan -refresh-only    .......................................It will update the state file and show the plan w.r.t new state and current infra
 terraform plan -out file_name.plan  ...................................It stores the plan into the file in binary format, which can be use create resource using terraform apply
 terraform plan -target="resource_type.resource_name"    ...............With target flag it allow us to plan specific resource
 terraform plan -var-file="file_name.tfvars" ...........................It will create plan using values define for varibles in the *.tfvars file
