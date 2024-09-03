@@ -24,7 +24,7 @@ terraform apply -replace="resource.resource_name"   ...................It will r
 terraform taint .......................................................Older version of above command not to use as its deprecated
 terraform apply "file_name.plan"    ...................................To create a resource with a .plan file use this command 
 terraform apply -destroy    ...........................................Alternative of terraform destroy. It will destroy all the resources mentioned in the .tf file
-terraform aply -refresh-only    .......................................Alternative of terraform refresh. It will check the latest state of infra and update the terraform.tfstate file accordingly
+terraform apply -refresh-only    .......................................Alternative of terraform refresh. It will check the latest state of infra and update the terraform.tfstate file accordingly
 
 terraform destroy   ...................................................It will destroy all the resources mentioned in the .tf file
 terraform destroy -auto-approve .......................................No need to confirm again by typing yes, it will destroy all the resources
@@ -32,7 +32,7 @@ terraform destroy -target="resource_type.resource_name" ...............With targ
 terraform destroy -target="resource_type.resource_name" -auto-approve .With target flag it allow us to destroy specific resource and auto approves it
 
 terraform refresh   .................It will check the latest state of infra and update the terraform.tfstate file accordingly
-terraform console   .................It provides an interactive environment to run terraform code in CLI
+terraform console   .................It provides an interactive environment to run terraform code in CLI. It also locks the state file
 
 terraform fmt   ..................It rewrite the terraform config file to take care of the overall formatting
 terraform fmt -check    ..........It will just check if file is formatted it will not modify the file
@@ -65,6 +65,7 @@ terraform workspace select workspace_name  ..To switch between workspace use thi
 terraform workspace delete  workspace_name ..It will delete the workspace
 terraform.workspace .........................To reference current workspace in the terraform code
 
+terraform login .............................It is used in Terraform to authenticate your local Terraform CLI with Terraform Cloud, Terraform Enterprise, or any other Terraform services that require authentication.
 
 
 Types of file in terraform
