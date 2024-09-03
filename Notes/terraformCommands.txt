@@ -9,7 +9,7 @@ terraform version   .............Shows version of the terraform installed on you
 terraform plan  .......................................................Shows a description of the config you are trying to create
 terraform plan -refresh=false   .......................................By default terraform refresh will happen with plan and apply command to avoid this you can set the -refresh flag as false while running plan and apply
 terraform plan -refresh-only    .......................................It will update the state file and show the plan w.r.t new state and current infra
-terraform plan -out file_name.plan  ...................................It stores the plan into the file in binary format, which can be use create resource using terraform apply
+terraform plan -out=file_name.plan  ...................................It stores the plan into the file in binary format, which can be use create resource using terraform apply
 terraform plan -target="resource_type.resource_name"    ...............With target flag it allow us to plan specific resource
 terraform plan -var-file="file_name.tfvars" ...........................It will create plan using values define for varibles in the *.tfvars file
 terraform plan -var="variable_name=value"   ...........................It will define the value of the variable declared in tf file from command line
@@ -62,7 +62,7 @@ terraform workspace show    .................It will show the name of the curren
 terraform workspace new workspace_name  .....It will create a new workspace and switch to it
 terraform workspace list    .................It will list all the workspace available
 terraform workspace select workspace_name  ..To switch between workspace use this command
-terraform workspace delete  workspace_name ..It will delete the workspace
+terraform workspace delete workspace_name ..It will delete the workspace
 terraform.workspace .........................To reference current workspace in the terraform code
 
 terraform login .............................It is used in Terraform to authenticate your local Terraform CLI with Terraform Cloud, Terraform Enterprise, or any other Terraform services that require authentication.
