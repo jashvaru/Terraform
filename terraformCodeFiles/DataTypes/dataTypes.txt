@@ -1,0 +1,10 @@
+string
+number
+bool
+list
+map
+set
+tuple
+onject
+null
+any
