@@ -24,6 +24,7 @@ terraform apply -replace="resource.resource_name"   ...................It will r
 terraform taint .......................................................Older version of above command not to use as its deprecated
 terraform apply "file_name.plan"    ...................................To create a resource with a .plan file use this command 
 terraform apply -destroy    ...........................................Alternative of terraform destroy. It will destroy all the resources mentioned in the .tf file
+terraform aply -refresh-only    .......................................Alternative of terraform refresh. It will check the latest state of infra and update the terraform.tfstate file accordingly
 
 terraform destroy   ...................................................It will destroy all the resources mentioned in the .tf file
 terraform destroy -auto-approve .......................................No need to confirm again by typing yes, it will destroy all the resources
