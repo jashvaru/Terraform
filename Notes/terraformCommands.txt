@@ -33,7 +33,7 @@ terraform destroy -auto-approve .......................................No need t
 terraform destroy -target="resource_type.resource_name" ...............With target flag it allow us to destroy specific resource
 terraform destroy -target="resource_type.resource_name" -auto-approve .With target flag it allow us to destroy specific resource and auto approves it
 
-terraform refresh   .................It will check the latest state of infra and update the terraform.tfstate file accordingly
+terraform refresh   .................It will check the latest state of infra and update the terraform.tfstate file accordingly. This command is deprecated after 0.15, instead use terraform plan -refresh-only
 terraform console   .................It provides an interactive environment to run terraform code in CLI. It also locks the state file
 
 terraform fmt   ..................It rewrite the terraform config file to take care of the overall formatting
