@@ -2,7 +2,7 @@ terraform init  .................Initializes terraform for the providers, module
 terraform init -upgrade .........When we do terraform init it will lock the provider version in terraform.lock.hcl file, if we want to update the version in lock file use this command
 terraform init -migrate-state  ..It is use to migrate exsisting state from local backend to new remote backend. From one backend to another
 terraform init -reconfigure .....It is use when you need to update or reapply your backend settings without migrating state.
-terraform init -backend-config="path"   .................Pass .tfvars config file to configure the backend
+terraform init -backend-config=path   .................Pass .tfvars config file to configure the backend
 terraform init -backend-config="bucket=value" -backend-config="region=value"    ..........Pass individual value to configure the backend
 
 terraform get   ................It is use to download and install modules that are referenced in configuration file
